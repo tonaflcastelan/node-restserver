@@ -30,3 +30,8 @@ process.env.EXPIRES = 60 * 60 * 24 * 30;
  * Token Seed
  */
 process.env.TOKEN_SEED = process.env.TOKEN_SEED || 'dev-evn-token';
+
+/**
+ * Google client
+ */
+process.env.CLIENT_ID = process.env.CLIENT_ID || '1050133401345-okma47cnf3n3si3k3d9td3eeqaa9di7c.apps.googleusercontent.com'
