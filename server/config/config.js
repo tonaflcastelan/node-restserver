@@ -24,7 +24,7 @@ process.env.URL_DB = urlDB;
 /**
  * Token Expires
  */
-process.env.EXPIRES = 60 * 60 * 24 * 30;
+process.env.EXPIRES = '48h';
 
 /**
  * Token Seed
