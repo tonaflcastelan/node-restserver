@@ -14,9 +14,10 @@ let verifyToken = (req, res, next) => {
         }
         req.user = decoded.user;
         next();
-    });    
+    });
 }
 
+/* Verify admin */
 let verifyAdmin = (req, res, next) => {
     let user = req.user;
 
@@ -32,7 +33,25 @@ let verifyAdmin = (req, res, next) => {
     }
 }
 
+/* Verify token img */
+let verifyTokenImg = (req, res, next) => {
+    let token = req.query.token;
+    jwt.verify(token, process.env.TOKEN_SEED, (err, decoded) => {
+        if (err) {
+            return res.status(401).json({
+                status: false,
+                err: {
+                    message: 'Token inválido'
+                }
+            });
+        }
+        req.user = decoded.user;
+        next();
+    });   
+}
+
 module.exports = {
     verifyToken,
-    verifyAdmin
+    verifyAdmin,
+    verifyTokenImg
 }
